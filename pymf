@@ -9,8 +9,6 @@ from sys import version
 from sys import argv
 from sys import exit
 
-pyver = int(version.split(".")[0])
-
 try:
 	import requests
 except ImportError:
@@ -22,23 +20,29 @@ def usage():
 	print("Usage: " + argv[0] + " <filename>")
 	exit()
 
-if len(argv) != 2:
-	usage()
+def main():
+	pyver = int(version.split(".")[0])
 
-upload = argv[1]
+	if len(argv) != 2:
+		usage()
 
-try:
-	response = requests.post(
-		url="http://pomf.se/upload.php",
-		files={"files[]":open(upload, "rb")}
-	)
-except Exception as e:
-	print("Error uploading {0}".format(e))
-	exit()
+	upload = argv[1]
 
-local = upload.split('/')
-local = (local[-1] if len(local) > 1 else local[0])
+	try:
+		response = requests.post(
+			url="http://pomf.se/upload.php",
+			files={"files[]":open(upload, "rb")}
+		)
+	except Exception as e:
+		print("Error uploading {0}".format(e))
+		exit()
 
-remote = "http://a.pomf.se/" + response.text.split('"')[17]
+	local = upload.split('/')
+	local = (local[-1] if len(local) > 1 else local[0])
 
-print(local + " -> " + remote)
+	remote = "http://a.pomf.se/" + response.text.split('"')[17]
+
+	print(local + " -> " + remote)
+
+if __name__ == '__main__':
+	main()

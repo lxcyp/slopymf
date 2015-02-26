@@ -24,4 +24,4 @@ xclip is available in pretty much every package manager. for a debian-based syst
     sudo apt-get install xclip
 
 ##Usage
-Place slopymf in the same directory as pymf.config. Execute slopymf, and select the region to capture. A link to your screenshot will be placed in your clipboard. 
+Place slopymf in the same directory as pymfconfig. Execute slopymf, and select the region to capture. A link to your screenshot will be placed in your clipboard. 

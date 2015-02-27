@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 from datetime import datetime
 from subprocess import call
@@ -50,7 +51,8 @@ def main():
 
 	remote = "http://a.pomf.se/" + response.text.split('"')[17]
 
-	pyperclip.copy(remote)
+	sys.stdout.write(remote)
+	sys.exit()
 
 #	print(local + " -> " + remote)
 #	print("copied to clipboard maybe??")

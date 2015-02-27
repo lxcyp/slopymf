@@ -9,9 +9,8 @@ import configparser
 
 try:
 	import requests
-	import pyperclip
 except ImportError:
-	print("Could not import a required module - are python-requests and pyperclip installed?")
+	print("Could not import a required module - is python-requests installed?")
 	exit()
 
 def readConfig():

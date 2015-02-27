@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 
 from datetime import datetime
 from subprocess import call
@@ -12,7 +10,7 @@ try:
 	import requests
 	import pyperclip
 except ImportError:
-	print("Could not import a required module - are python-requests and pyperlclip installed?")
+	print("Could not import a required module - are python-requests and pyperclip installed?")
 	exit()
 
 def readConfig():
